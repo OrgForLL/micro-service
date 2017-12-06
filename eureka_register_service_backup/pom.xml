@@ -39,7 +39,7 @@
 	</dependencyManagement>
 
 	<build>
-	
+		<finalName>eureka_register_service_backup</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
