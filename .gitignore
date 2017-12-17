@@ -18,5 +18,11 @@ appCommodity.log
 eureka_register_service_backup/.project
 eureka_register_service_master/.project
 eureka-sever/.project
+
+eureka_register_service_backup/.classpath
+eureka_register_service_master/.classpath
+eureka-sever/.classpath
+eureka-sever/.springBeans
+
 # Avoid ignoring Maven wrapper jar file (.jar files are usually ignored)
 !/.mvn/wrapper/maven-wrapper.jar
