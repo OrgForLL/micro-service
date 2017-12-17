@@ -13,5 +13,10 @@ dependency-reduced-pom.xml
 buildNumber.properties
 .mvn/timing.properties
 appCommodity.log
+
+.project
+eureka_register_service_backup/.project
+eureka_register_service_master/.project
+eureka-sever/.project
 # Avoid ignoring Maven wrapper jar file (.jar files are usually ignored)
 !/.mvn/wrapper/maven-wrapper.jar
