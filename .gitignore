@@ -1,9 +1,30 @@
 target/
 eureka_register_service_backup/target
 eureka_register_service_master/target
+eureka-sever/target
+papy/target
+
 .settings
 eureka_register_service_master/.settings
 eureka_register_service_backup/.settings
+eureka-sever/.settings
+papy/.settings
+
+.project
+eureka_register_service_backup/.project
+eureka_register_service_master/.project
+eureka-sever/.project
+papy/.project
+
+.classpath
+eureka_register_service_backup/.classpath
+eureka_register_service_master/.classpath
+eureka-sever/.project
+papy/.classpath
+
+papy/.springBeans
+
+
 pom.xml.tag
 pom.xml.releaseBackup
 pom.xml.versionsBackup
@@ -14,15 +35,7 @@ buildNumber.properties
 .mvn/timing.properties
 appCommodity.log
 
-.project
-eureka_register_service_backup/.project
-eureka_register_service_master/.project
-eureka-sever/.project
 
-eureka_register_service_backup/.classpath
-eureka_register_service_master/.classpath
-eureka-sever/.classpath
-eureka-sever/.springBeans
 
 # Avoid ignoring Maven wrapper jar file (.jar files are usually ignored)
 !/.mvn/wrapper/maven-wrapper.jar
