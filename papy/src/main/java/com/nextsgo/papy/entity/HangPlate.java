@@ -52,5 +52,55 @@ public class HangPlate {
 	public void setCreateDate( java.util.Date createDate) {
 		this.createDate = createDate;
 	}
+
+
+	public Integer getCustomerId() {
+		return customerId;
+	}
+
+
+	public void setCustomerId(Integer customerId) {
+		this.customerId = customerId;
+	}
+
+
+	public String getProduct() {
+		return product;
+	}
+
+
+	public void setProduct(String product) {
+		this.product = product;
+	}
+
+
+	public String getColour() {
+		return colour;
+	}
+
+
+	public void setColour(String colour) {
+		this.colour = colour;
+	}
+
+
+	public BigDecimal getWeight() {
+		return weight;
+	}
+
+
+	public void setWeight(BigDecimal weight) {
+		this.weight = weight;
+	}
+
+
+	public BigDecimal getCountPreJin() {
+		return countPreJin;
+	}
+
+
+	public void setCountPreJin(BigDecimal countPreJin) {
+		this.countPreJin = countPreJin;
+	}
 	
 }
