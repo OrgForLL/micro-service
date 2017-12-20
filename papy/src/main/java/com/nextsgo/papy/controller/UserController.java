@@ -1,40 +1,107 @@
 package com.nextsgo.papy.controller;
+
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+import javax.persistence.Query;
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
+
+import org.junit.After;
+import org.junit.Before;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.beans.propertyeditors.CustomDateEditor;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.nextsgo.papy.entity.Result;
 import com.nextsgo.papy.entity.User;
 import com.nextsgo.papy.repository.UserRepository;
+import com.nextsgo.papy.service.UserService;
+import com.nextsgo.papy.utils.MD5Utils;
+import com.nextsgo.papy.utils.ManInfoProperties;
+import com.nextsgo.papy.utils.NativeQuery;
 import com.nextsgo.papy.utils.ResultUtil;
-
-
+/***
+ * 用户处理
+ * @author min
+ *
+ */
 @RestController
-public class UserController {
-    @Autowired
-    private UserRepository userRepository;
-    
-	@PostMapping(value="/login")
-	private Result login(HttpServletRequest request) {	
-		String name=request.getParameter("name");
-		String password=request.getParameter("password");	
-		if(null==name|| name.length()==0) {
-			return ResultUtil.error(500, "require  name");
-		}
-		if(null==password|| password.length()==0) {
-			return ResultUtil.error(501, "require  password");
-		}
-	    List<User> user= userRepository.findByNameAndPassword(name,password);
-	    if(user.size()>1) {
-	    	return ResultUtil.error(300, "no unique user");
-	    }else if (user.size()==0) {
-	    	return ResultUtil.error(400, "no user");
-	    }else {
-	    	return ResultUtil.success(user);
-	    }
-	}	
+public class UserController extends BaseController {
+	@Autowired
+	private UserRepository userRepository;
+	@Autowired
+	UserService userService;
 	
+	@GetMapping(value = "/users")
+	private Result<?> usersList() {
+		try {
+			return ResultUtil.success(userRepository.findAll());
+
+		} catch (Exception e) {
+			return ResultUtil.error(100, e.getMessage());
+		}
+
+	}
+	
+	@PostMapping(value = "/users")
+	private Result<?> userAdd(@Valid User user, BindingResult bindingResult) {
+		if (bindingResult.hasErrors()) {
+			return ResultUtil.error(1, bindingResult.getFieldError().getDefaultMessage());
+		}
+		user.setPassword(MD5Utils.getPwd(user.getPassword()));
+		
+		try {
+			if (null != userRepository.findByName(user.getName())) {
+				return ResultUtil.error(100, "用户名已存在");
+			} else if (null != userRepository.findByFullName(user.getFullName())) {
+				return ResultUtil.error(100, "中文名已存在");
+			} else {
+				return ResultUtil.success(userRepository.save(user));
+			}
+		} catch (Exception e) {
+			return ResultUtil.error(100, e.getMessage());
+		}
+
+	}
+	
+	/***
+	 * 使用SQL语句查询
+	 * 
+	 * @param name
+	 * @return
+	 */
+	@GetMapping(value = "/likename")
+	public Result<?> findContactsUseDyanamicQueryLikeName(String name) {
+		String nameWhere = org.apache.commons.lang.StringUtils.join(new String[] { "%", name, "%" }, "");
+		List<User> contacts = userService.findAllByViaQuery(nameWhere);
+		if (contacts == null) {
+			return ResultUtil.error(1, "empty data");
+		} else {
+			return ResultUtil.success(contacts);
+		}
+	}
+	/***
+	 * 使用SQL语句查询
+	 * 
+	 * @return
+	 */
+	@Autowired
+	private NativeQuery nativeQuery;
+	@PostMapping(value = "/test")
+	public Result<?> testJpa() {		
+		return ResultUtil.success(nativeQuery.getResultList("Select * from user"));
+	}
 }

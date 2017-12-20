@@ -9,4 +9,7 @@ import com.nextsgo.papy.entity.User;
 
 public interface UserRepository extends  JpaRepository<User,Integer> {
     public List<User> findByNameAndPassword(String n,String p);
+    User findByName(String name);
+    User findByFullName(String f);    
+    List<User> findByNameLike(String name);
 }
