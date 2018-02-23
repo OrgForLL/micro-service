@@ -1,0 +1,38 @@
+spring:
+  application:
+    name: "zuul"
+
+eureka:
+  instance:
+    prefer-ip-address: true
+
+  client:
+    service-url:
+      defaultZone: http://admin:123@localhost:7998/eureka,http://localhost:7999/eureka
+
+
+security:
+  basic:
+    enabled: false
+
+management:
+  security:
+    enabled: false
+
+server:
+  port: 8040
+
+logging:
+  level:
+    root: INFO
+    org.springframework.cloud.sleuth: DEBUG
+
+zuul:
+  routes:
+    api-a:
+      path: /api-papy/**
+      service-id: papy
+      sensitive-headers:
+    api-b:
+      path: /api-order/**
+      service-id: service-consumer
