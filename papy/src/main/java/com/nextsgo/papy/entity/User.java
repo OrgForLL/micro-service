@@ -25,7 +25,7 @@ import javax.persistence.FieldResult;
 		@FieldResult(name = "fullName", column = "full_name"),
 		@FieldResult(name = "password", column = "pass_word"),
 		@FieldResult(name = "createDate", column = "create_date"),
-		@FieldResult(name = "createor", column = "createor"),
+		@FieldResult(name = "createorID", column = "createor_id"),
 		@FieldResult(name = "modifier", column = "modifier"),
 		@FieldResult(name = "verifier", column = "verifier"),
 		@FieldResult(name = "disabled", column = "disabled")

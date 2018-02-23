@@ -42,5 +42,4 @@ public class NativeQuery {
 		return list;
 
 	}
-
 }

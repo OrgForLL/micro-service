@@ -55,7 +55,7 @@ public class UserController extends BaseController {
 		}
 
 	}
-	
+
 	@PostMapping(value = "/users")
 	private Result<?> userAdd(@Valid User user, BindingResult bindingResult) {
 		if (bindingResult.hasErrors()) {

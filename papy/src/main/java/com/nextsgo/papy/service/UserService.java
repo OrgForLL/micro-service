@@ -20,7 +20,7 @@ public class UserService {
 	@SuppressWarnings("unchecked")
     public List<User> findAllByViaQuery(String name) {
         List<User> contacts = this.entityManager
-                .createNativeQuery("select id,name,pass_word,create_date,createor, full_name from user where name like :name", "userMapping")
+                .createNativeQuery("select id,name,pass_word,create_date,createor_id, full_name from user where name like :name", "userMapping")
                 .setParameter("name", name)
                 .setMaxResults(5)
                 .getResultList();
