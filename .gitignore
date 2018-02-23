@@ -3,27 +3,30 @@ eureka_register_service_backup/target
 eureka_register_service_master/target
 eureka-sever/target
 papy/target
+zuul/target
 
 .settings
 eureka_register_service_master/.settings
 eureka_register_service_backup/.settings
 eureka-sever/.settings
 papy/.settings
-
+zuul/.settings
 .project
 eureka_register_service_backup/.project
 eureka_register_service_master/.project
 eureka-sever/.project
 papy/.project
+zuul/.project
 
 .classpath
 eureka_register_service_backup/.classpath
 eureka_register_service_master/.classpath
 eureka-sever/.project
 papy/.classpath
+zuul/.classpath
 
 papy/.springBeans
-
+zuul/.springBeans
 
 pom.xml.tag
 pom.xml.releaseBackup
