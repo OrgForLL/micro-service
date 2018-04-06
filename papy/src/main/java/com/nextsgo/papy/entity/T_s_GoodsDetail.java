@@ -13,7 +13,7 @@ import org.hibernate.annotations.GenericGenerator;
 
 @Entity
 @Table(name = "t_s_GoodsDetail")
-public class t_s_GoodsDetail {
+public class T_s_GoodsDetail {
 	
 	@Id	
 	@GenericGenerator(name = "PKUUID", strategy = "uuid2")  

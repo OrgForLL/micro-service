@@ -11,7 +11,7 @@ import org.hibernate.annotations.GenericGenerator;
 
 @Entity
 @Table(name = "t_s_shopUser")
-public class t_s_shopUser {
+public class T_s_shopUser {
 	@Id	
 	@GenericGenerator(name = "PKUUID", strategy = "uuid2")  
     @GeneratedValue(generator = "PKUUID")  
