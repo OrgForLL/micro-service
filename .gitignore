@@ -3,6 +3,7 @@ eureka_register_service_backup/target
 eureka_register_service_master/target
 eureka-sever/target
 papy/target
+papy/src/main/resources/application.yml
 zuul/target
 
 .settings
