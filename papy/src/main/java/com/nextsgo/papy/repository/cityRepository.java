@@ -12,4 +12,5 @@ public interface cityRepository extends  JpaRepository<T_s_City,String> {
 	T_s_City findByName(String name);
 	//T_s_City findByid(String id);
 	List<T_s_City> findByid(String id);
+	List<T_s_City> findByparentid(string parentid);
 }

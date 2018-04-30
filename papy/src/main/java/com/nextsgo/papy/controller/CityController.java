@@ -29,7 +29,26 @@ public class CityController {
 
 	}
 	
-	@PostMapping(value = "/cityname")
+	@PostMapping(value = "/citypid")
+	private Result<?> citypidList(HttpServletRequest request) {
+		
+		String parentid = request.getParameter("code");
+		if (null == parentid || parentid.length() == 0) {
+			return ResultUtil.error(500, "require code");
+		}
+		//return ResultUtil.success(cityRepository.findByid(id));
+	
+		List<T_s_City> listcity = cityRepository.findByparentid(parentid);
+		if (listcity.size() > 1) {
+			return ResultUtil.error(300, "no unique user");
+		} else if (listcity.size() == 0) {
+			return ResultUtil.error(400, "no Parentid");
+		} else {
+			return ResultUtil.success(listcity.get(0));
+		}
+	}
+	
+	@PostMapping(value = "/cityid")
 	private Result<?> cityLists(HttpServletRequest request) {
 		
 		String id = request.getParameter("code");
@@ -42,7 +61,7 @@ public class CityController {
 		if (listcity.size() > 1) {
 			return ResultUtil.error(300, "no unique user");
 		} else if (listcity.size() == 0) {
-			return ResultUtil.error(400, "no user");
+			return ResultUtil.error(400, "no City");
 		} else {
 			return ResultUtil.success(listcity.get(0));
 		}
