@@ -5,9 +5,9 @@ spring:
     active: dev
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://test/yaya?useSSL=true
-    username: test
-    password: test
+    url: jdbc:mysql://116.62.154.58:6612/yaya?useSSL=true
+    username: lllogin
+    password: 123456
   jackson:
     date-format: yyyy-MM-dd HH:mm:ss
     time-zone: GMT+8         

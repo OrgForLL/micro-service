@@ -32,8 +32,8 @@ public class T_S_USER {
 	
 	@NotNull(message = "密码")
 	@Column(name = "PassWord", columnDefinition = " varchar(50) default '' not null comment '密码' ")
-	private String passWord;
-	
+	private String password;
+	 
 	@NotNull(message = "性别")
 	@Column(name = "sexID", columnDefinition = " varchar(50) default '' comment '性别' ")
 	private String sexID;
@@ -83,12 +83,13 @@ public class T_S_USER {
 		this.nameEn = nameEn;
 	}
 
-	public String getPassWord() {
-		return passWord;
+
+	public String getPassword() {
+		return password;
 	}
 
-	public void setPassWord(String passWord) {
-		this.passWord = passWord;
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 	public String getSexID() {

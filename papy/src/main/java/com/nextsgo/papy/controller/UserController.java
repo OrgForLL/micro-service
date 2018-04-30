@@ -26,7 +26,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.nextsgo.papy.entity.Result;
-import com.nextsgo.papy.entity.User;
+import com.nextsgo.papy.entity.T_S_USER;
 import com.nextsgo.papy.repository.UserRepository;
 import com.nextsgo.papy.service.UserService;
 import com.nextsgo.papy.utils.MD5Utils;
@@ -56,17 +56,17 @@ public class UserController extends BaseController {
 
 	}
 
-	@PostMapping(value = "/users")
-	private Result<?> userAdd(@Valid User user, BindingResult bindingResult) {
+	/*@PostMapping(value = "/users")
+	private Result<?> userAdd(@Valid T_S_USER user, BindingResult bindingResult) {
 		if (bindingResult.hasErrors()) {
 			return ResultUtil.error(1, bindingResult.getFieldError().getDefaultMessage());
 		}
 		user.setPassword(MD5Utils.getPwd(user.getPassword()));
 		
 		try {
-			if (null != userRepository.findByName(user.getName())) {
+			if (null != userRepository.findbycode(user.getCode())) {
 				return ResultUtil.error(100, "用户名已存在");
-			} else if (null != userRepository.findByFullName(user.getFullName())) {
+			} else if (null != userRepository.findByFullcode(user.getNameEn())) {
 				return ResultUtil.error(100, "中文名已存在");
 			} else {
 				return ResultUtil.success(userRepository.save(user));
@@ -75,7 +75,7 @@ public class UserController extends BaseController {
 			return ResultUtil.error(100, e.getMessage());
 		}
 
-	}
+	}*/
 	
 	/***
 	 * 使用SQL语句查询
@@ -83,16 +83,16 @@ public class UserController extends BaseController {
 	 * @param name
 	 * @return
 	 */
-	@GetMapping(value = "/likename")
+	/***@GetMapping(value = "/likename")
 	public Result<?> findContactsUseDyanamicQueryLikeName(String name) {
 		String nameWhere = org.apache.commons.lang.StringUtils.join(new String[] { "%", name, "%" }, "");
-		List<User> contacts = userService.findAllByViaQuery(nameWhere);
+		List<T_S_USER> contacts = userService.findAllByViaQuery(nameWhere);
 		if (contacts == null) {
 			return ResultUtil.error(1, "empty data");
 		} else {
 			return ResultUtil.success(contacts);
 		}
-	}
+	} */
 	/***
 	 * 使用SQL语句查询
 	 * 
