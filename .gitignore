@@ -3,7 +3,8 @@ eureka_register_service_backup/target
 eureka_register_service_master/target
 eureka-sever/target
 papy/target
-papy/src/main/resources/application.yml
+msg/target
+
 zuul/target
 
 .settings
@@ -12,12 +13,14 @@ eureka_register_service_backup/.settings
 eureka-sever/.settings
 papy/.settings
 zuul/.settings
+msg/.settings
 .project
 eureka_register_service_backup/.project
 eureka_register_service_master/.project
 eureka-sever/.project
 papy/.project
 zuul/.project
+msg/.project
 
 .classpath
 eureka_register_service_backup/.classpath
@@ -25,6 +28,7 @@ eureka_register_service_master/.classpath
 eureka-sever/.project
 papy/.classpath
 zuul/.classpath
+msg/.classpath
 
 papy/.springBeans
 zuul/.springBeans
