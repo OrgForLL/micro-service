@@ -5,7 +5,7 @@ spring:
     active: dev
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://almysql:6612/yaya?useSSL=true
+    url: jdbc:mysql://aly:6612/yaya?useSSL=true
     username: lllogin
     password: 123456
   jackson:
