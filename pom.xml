@@ -60,5 +60,6 @@
 		<module>eureka_register_service_master</module>
 		<module>papy</module>
     	<module>zuul</module>
+    <module>msg</module>
   </modules>
 </project>
