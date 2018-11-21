@@ -24,6 +24,7 @@ public class Kafka {
 	@ResponseBody
 	private Result<?> Send(@RequestBody Message message) {			
 		kafkaSender.send(message);
+		System.out.println(message.getTo());
 		return ResultUtil.success();
 	}
 }
