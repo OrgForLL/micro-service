@@ -41,7 +41,7 @@
 	</dependencies>
 
 	<build>
-		<finalName>eureka_register_service_master</finalName>
+		<finalName>eureka_register</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>

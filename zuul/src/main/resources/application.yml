@@ -8,7 +8,7 @@ eureka:
 
   client:
     service-url:
-      defaultZone: http://localhost:7998/eureka,http://localhost:7999/eureka
+      defaultZone: http://master:123@118.89.29.111:7998/eureka/,http://backup:123@118.89.29.111:7999/eureka/
 
 
 security:
@@ -34,5 +34,5 @@ zuul:
       service-id: papy
       sensitive-headers:
     api-b:
-      path: /api-order/**
-      service-id: service-consumer
+      path: /api-msg/**
+      service-id: msg

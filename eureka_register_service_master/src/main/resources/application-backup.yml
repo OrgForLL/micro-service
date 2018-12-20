@@ -1,0 +1,19 @@
+spring:
+  profiles: backup 
+server:
+  port: 7999
+eureka:
+  instance:
+    hostname: backupIP
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://master:123@masterIP:7998/eureka/
+security:
+  basic:
+    enabled: true
+  user:
+    name: backup
+    password: 123
+          

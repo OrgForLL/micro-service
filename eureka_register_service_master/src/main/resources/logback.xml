@@ -5,7 +5,7 @@
     <!--<include resource="org/springframework/boot/logging/logback/base.xml" />-->
 
     <!--定义日志文件的存储地址和前缀名-->
-    <property name="LOG_HOME" value="C:/logs/master" />
+    <property name="LOG_HOME" value="./logs" />
     <property name="LOG_PREFIX" value="micro-eureka-server" />
 
     <!-- 一般信息按照每天生成日志文件 -->
@@ -17,7 +17,7 @@
             <!-- 单个日志文件最多500MB, 30天的日志周期，最大不能超过20GB -->
             <maxFileSize>100MB</maxFileSize>
             <maxHistory>30</maxHistory>
-            <totalSizeCap>20GB</totalSizeCap>
+            <totalSizeCap>800MB</totalSizeCap>
         </rollingPolicy>
         <encoder>
             <!--格式化输出：%d表示日期，%thread表示线程名，%-5level：级别从左显示5个字符宽度%msg：日志消息，%n是换行符-->
