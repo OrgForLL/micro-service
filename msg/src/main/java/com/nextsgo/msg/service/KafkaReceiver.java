@@ -7,10 +7,10 @@ import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Component;
 
 import com.alibaba.fastjson.JSON;
-
+import com.nextsgo.common.entity.Result;
+import com.nextsgo.common.tools.HttpRequest;
 import com.nextsgo.msg.entity.Message;
-import com.nextsgo.msg.entity.Result;
-import com.nextsgo.msg.tools.HttpRequest;
+ 
 
 
 @Component

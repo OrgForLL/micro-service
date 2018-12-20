@@ -7,22 +7,17 @@
 		<groupId>com.nextsgo</groupId>
 		<artifactId>micro-service</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
-	</parent>
-	<artifactId>msg</artifactId>
+	</parent>	
+	<artifactId>web</artifactId>	
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 	<dependencies>
 		<dependency>
-			<groupId>org.springframework.kafka</groupId>
-			<artifactId>spring-kafka</artifactId>
-			<version>1.1.1.RELEASE</version>
-		</dependency>
-
-		 	<dependency>
-			<groupId>org.projectlombok</groupId>
-			<artifactId>lombok</artifactId>
-			<optional>true</optional>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>3.8.1</version>
+			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>com.nextsgo</groupId>
@@ -31,7 +26,7 @@
 		</dependency>
 	</dependencies>
 	<build>
-		<finalName>msg</finalName>
+		<finalName>web</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>

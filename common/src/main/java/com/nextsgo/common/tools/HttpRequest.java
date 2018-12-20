@@ -1,4 +1,4 @@
-package com.nextsgo.msg.tools;
+package com.nextsgo.common.tools;
 
 import java.io.BufferedReader;
 
@@ -7,7 +7,9 @@ import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-import com.nextsgo.msg.entity.Result;
+import com.nextsgo.common.entity.Result;
+
+
 
 
 public class HttpRequest {

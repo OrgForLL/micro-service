@@ -1,13 +1,22 @@
-package com.nextsgo.papy.utils;
+package com.nextsgo.common.tools;
+import com.nextsgo.common.entity.Result;
 
-import com.nextsgo.papy.entity.*;
 
+@SuppressWarnings("all")
 public class ResultUtil {
     public static Result success(Object object){
         Result result= new Result();
         result.setErrcode(0);
         result.setData(object);
         result.setErrmsg("成功");
+        return result;
+    }
+    
+    public static Result success(Object object,String errorMsg){
+        Result result= new Result();
+        result.setErrcode(0);
+        result.setData(object);
+        result.setErrmsg(errorMsg);
         return result;
     }
 

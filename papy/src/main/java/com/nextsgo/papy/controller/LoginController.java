@@ -10,11 +10,11 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.nextsgo.papy.entity.Result;
+import com.nextsgo.common.entity.Result;
+import com.nextsgo.common.tools.ResultUtil;
 import com.nextsgo.papy.entity.T_S_USER;
 import com.nextsgo.papy.repository.UserRepository;
 import com.nextsgo.papy.utils.MD5Utils;
-import com.nextsgo.papy.utils.ResultUtil;
 
 @RestController
 public class LoginController {

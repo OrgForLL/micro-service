@@ -8,14 +8,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.nextsgo.common.entity.Result;
+import com.nextsgo.common.tools.ResultUtil;
 import com.nextsgo.papy.entity.HangPlate;
-import com.nextsgo.papy.entity.Result;
 
 import com.nextsgo.papy.repository.HangPlateRepository;
 
 import com.nextsgo.papy.service.HangPlateService;
 
-import com.nextsgo.papy.utils.ResultUtil;
 
 @RestController
 public class HangPlateController {

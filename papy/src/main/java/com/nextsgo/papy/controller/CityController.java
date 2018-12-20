@@ -7,10 +7,11 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
-import com.nextsgo.papy.entity.Result;
+
+import com.nextsgo.common.entity.Result;
+import com.nextsgo.common.tools.ResultUtil;
 import com.nextsgo.papy.entity.T_s_City;
 import com.nextsgo.papy.repository.cityRepository;
-import com.nextsgo.papy.utils.ResultUtil;
 
 @RestController
 public class CityController {

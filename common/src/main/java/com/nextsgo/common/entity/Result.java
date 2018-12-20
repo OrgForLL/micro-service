@@ -1,4 +1,4 @@
-package com.nextsgo.msg.entity;
+package com.nextsgo.common.entity;
 
 public class Result<T> {
     /**错误码.*/

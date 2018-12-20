@@ -61,5 +61,7 @@
 		<module>papy</module>
     	<module>zuul</module>
     <module>msg</module>
+    <module>web</module>
+    <module>common</module>
   </modules>
 </project>

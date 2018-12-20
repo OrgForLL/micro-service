@@ -8,9 +8,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 import com.nextsgo.msg.entity.Message;
-import com.nextsgo.msg.entity.Result;
+ 
 import com.nextsgo.msg.service.KafkaSender;
-import com.nextsgo.msg.tools.ResultUtil;
+import com.nextsgo.common.entity.Result;
+import com.nextsgo.common.tools.ResultUtil;
 
 
 
