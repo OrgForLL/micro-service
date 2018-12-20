@@ -54,12 +54,10 @@
 
 	</dependencies>
 	<modules>
-		<module>eureka-sever</module>
-		
-		<module>eureka_register_service_backup</module>
 		<module>eureka_register_service_master</module>
 		<module>papy</module>
     	<module>zuul</module>
     <module>msg</module>
+    <module>kafka</module>
   </modules>
 </project>
