@@ -29,7 +29,7 @@ public class ControllerLogAspect {
 
 	ThreadLocal<Long> startTime = new ThreadLocal<>();
 	
-    @Pointcut("execution(public * com.nextsgo.web.controller.*.*(..))")
+    @Pointcut("execution(public * com.nextsgo.web.test.*.*(..))")
     public void controllerLog(){
     	System.out.println("AOP切面");
     }
@@ -40,15 +40,17 @@ public class ControllerLogAspect {
     	
     	// 接收到请求，记录请求内容
         ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
-        HttpServletRequest request = attributes.getRequest();
         
+        HttpServletRequest request = attributes.getRequest();
+        		
         // 通过这获取到方法的所有参数名称的字符串数组
         String url = request.getRequestURL().toString();
         String time = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
         Signature signature = joinPoint.getSignature();
         MethodSignature methodSignature = (MethodSignature) signature;
         String[] parameterNames = methodSignature.getParameterNames();
-        Object[] args = joinPoint.getArgs();
+        Object[] args = joinPoint.getArgs();         
+        
         
         // 打印至控制台
         System.out.println("Time : " + time);
@@ -74,4 +76,7 @@ public class ControllerLogAspect {
         logger.info("Spend Time : " + ((System.currentTimeMillis() - startTime.get()) 
         		* 1.0 / 1000) + "秒");
     }
+    
+    
+    
 }

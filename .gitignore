@@ -32,6 +32,7 @@ msg/.classpath
 
 papy/.springBeans
 zuul/.springBeans
+web/.factorypath
 
 pom.xml.tag
 pom.xml.releaseBackup
