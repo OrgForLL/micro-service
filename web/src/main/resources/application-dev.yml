@@ -1,2 +1,8 @@
 server:
   port: 80
+  
+soft:
+  comet:
+    longPollingUrl: http://116.62.154.58:98/WEBuser/longPolling.ashx
+    topic: longPollingData
+    kafkaSender: localhost:1001/send
