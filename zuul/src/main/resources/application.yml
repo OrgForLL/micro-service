@@ -1,16 +1,12 @@
 spring:
   application:
     name: "zuul"
-
 eureka:
   instance:
     prefer-ip-address: true
-
   client:
     service-url:
       defaultZone: http://master:123@masterIP:7998/eureka/,http://backup:123@backupIP:7999/eureka/
-
-
 security:
   basic:
     enabled: false
