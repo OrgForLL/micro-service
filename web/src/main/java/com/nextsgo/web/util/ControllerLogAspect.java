@@ -1,7 +1,10 @@
 package com.nextsgo.web.util;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -29,40 +32,54 @@ public class ControllerLogAspect {
 
 	ThreadLocal<Long> startTime = new ThreadLocal<>();
 	
-    @Pointcut("execution(public * com.nextsgo.web.test.*.*(..))")
+    @Pointcut("execution(public * com.nextsgo.web.controller.*.*(..))")
     public void controllerLog(){
     	System.out.println("AOP切面");
     }
 
     @Before("controllerLog()")
     public void doBefore(JoinPoint joinPoint) throws Throwable {
-    	startTime.set(System.currentTimeMillis());
-    	
+    	startTime.set(System.currentTimeMillis());    	
     	// 接收到请求，记录请求内容
-        ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
-        
+        ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();        
         HttpServletRequest request = attributes.getRequest();
-        		
         // 通过这获取到方法的所有参数名称的字符串数组
         String url = request.getRequestURL().toString();
         String time = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
         Signature signature = joinPoint.getSignature();
-        MethodSignature methodSignature = (MethodSignature) signature;
-        String[] parameterNames = methodSignature.getParameterNames();
+        MethodSignature methodSignature = (MethodSignature) signature;        
         Object[] args = joinPoint.getArgs();         
+        // 获取所有的参数名
+        String[] parameterNames = methodSignature.getParameterNames();
+        // 键列表
+        List<String> keyList = new ArrayList<String>();
+        // 值列表
+        List<Object> valueList = new ArrayList<Object>(); 
         
-        
+        for(int i = 0;i < args.length; i++) {
+        	// 防止直接输出request对象值异常、加了判断处理
+        	if(args[i] instanceof HttpServletRequest) {
+        		Map<String, String[]> parameterMap = ((HttpServletRequest)args[i]).getParameterMap();
+        		for(String key:parameterMap.keySet()) {
+        			keyList.add(key);
+        			valueList.add(parameterMap.get(key));
+        		}
+        	}else {
+        		keyList.add(parameterNames[i]);
+        		valueList.add(args[i]);
+        	}
+        }
         // 打印至控制台
         System.out.println("Time : " + time);
         System.out.println("URL : " + url);
-        System.out.println("ParamName : " + JSON.toJSONString(parameterNames));
-        System.out.println("ParamValue : " + JSON.toJSONString(args));
+        System.out.println("ParamName : " + JSON.toJSONString(keyList));
+        System.out.println("ParamValue : " + JSON.toJSONString(valueList));
         
         // 记录下请求内容
         logger.info("Time : " + time);
         logger.info("URL : " + url);
-        logger.info("ParamName : " + JSON.toJSONString(parameterNames));
-        logger.info("ParamValue : " + JSON.toJSONString(args));
+        logger.info("ParamName : " + JSON.toJSONString(keyList));
+        logger.info("ParamValue : " + JSON.toJSONString(valueList));
     }
 
     @AfterReturning(returning = "ret", pointcut = "controllerLog()")

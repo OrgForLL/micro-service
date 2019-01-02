@@ -8,7 +8,7 @@ eureka:
 
   client:
     service-url:
-      defaultZone: http://master:123@118.89.29.111:7998/eureka/,http://backup:123@118.89.29.111:7999/eureka/
+      defaultZone: http://master:123@masterIP:7998/eureka/,http://backup:123@backupIP:7999/eureka/
 
 
 security:
@@ -20,7 +20,7 @@ management:
     enabled: false
 
 server:
-  port: 8040
+  port: 80
 
 logging:
   level:
@@ -29,10 +29,24 @@ logging:
 
 zuul:
   routes:
-    api-a:
+    api-papy:
       path: /api-papy/**
       service-id: papy
       sensitive-headers:
-    api-b:
+    test-papy:
+      path: /test-papy/**
+      service-id: test-papy
+      sensitive-headers:
+            
+    api-msg:
       path: /api-msg/**
       service-id: msg
+    test-msg:
+      path: /test-msg/**
+      service-id: test-msg
+    api-web:
+      path: /web/**
+      service-id: web
+    test-web:
+      path: /test-web/**
+      service-id: test-web      
