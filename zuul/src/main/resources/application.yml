@@ -25,6 +25,9 @@ logging:
 
 zuul:
   routes:
+    eureka:
+      path: /eureka
+      url: http://127.0.0.1:7998
     api-papy:
       path: /api-papy/**
       service-id: papy
@@ -32,8 +35,7 @@ zuul:
     test-papy:
       path: /test-papy/**
       service-id: test-papy
-      sensitive-headers:
-            
+      sensitive-headers:            
     api-msg:
       path: /api-msg/**
       service-id: msg
