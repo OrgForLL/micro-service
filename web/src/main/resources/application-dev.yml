@@ -5,10 +5,18 @@ eureka:
     prefer-ip-address: true
   client:
     service-url:
-      defaultZone: http://master:123@192.168.1.103:7998/eureka/,http://backup:123@backupIP:7999/eureka/
+      defaultZone: http://master:123@masterIP:7998/eureka/,http://backup:123@backupIP:7999/eureka/
 
 soft:
   comet:
     longPollingUrl: http://116.62.154.58:98/WEBuser/longPolling.ashx
     topic: longPollingData
     kafkaSender: http://192.168.1.103:1001/Send
+spring:
+  boot:
+    admin:
+      url: http://127.0.0.1:1002
+management:
+  security:
+    enabled: false      
+          

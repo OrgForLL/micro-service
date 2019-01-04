@@ -30,7 +30,7 @@ import com.alibaba.fastjson.JSON;
 public class ControllerLogAspect {
 	private Logger logger = LogManager.getLogger(ControllerLogAspect.class);
 
-	ThreadLocal<Long> startTime = new ThreadLocal<>();
+	ThreadLocal<Long> startTime = new ThreadLocal<Long>();
 	
     @Pointcut("execution(public * com.nextsgo.web.controller.*.*(..))")
     public void controllerLog(){
