@@ -4,12 +4,11 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.nextsgo.papy.entity.T_S_USER;
+import com.nextsgo.papy.entity.User;;
  
 
-public interface UserRepository extends  JpaRepository<T_S_USER,Integer> {
-    public List<T_S_USER> findByCodeAndPassword(String code,String p);
-    T_S_USER findBycode(String code);
-   // T_S_USER findByFullcode(String f);    
-    List<T_S_USER> findBycodeLike(String code);
+public interface UserRepository extends  JpaRepository<User,Integer> {
+    public List<User> findByNameAndPassword(String name,String password);
+    User findByName(String name);
+    List<User> findByNameLike(String name);
 }

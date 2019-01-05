@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.nextsgo.common.entity.Result;
 import com.nextsgo.common.tools.ResultUtil;
-import com.nextsgo.papy.entity.T_S_USER;
+import com.nextsgo.papy.entity.User;
 import com.nextsgo.papy.repository.UserRepository;
 import com.nextsgo.papy.utils.MD5Utils;
 
@@ -31,7 +31,7 @@ public class LoginController {
 		if (null == password || password.length() == 0) {
 			return ResultUtil.error(501, "require  password");
 		}
-		List<T_S_USER> listUser = userRepository.findByCodeAndPassword(code, MD5Utils.getPwd(password));
+		List<User> listUser = userRepository.findByNameAndPassword(code, MD5Utils.getPwd(password));
 		if (listUser.size() > 1) {
 			return ResultUtil.error(300, "no unique user");
 		} else if (listUser.size() == 0) {
@@ -45,7 +45,7 @@ public class LoginController {
      * @return
      */
     @PostMapping(value = "/adduser")
-    public Result<?> girlUser(@Valid T_S_USER USER, BindingResult bindingResult){
+    public Result<?> girlUser(@Valid User USER, BindingResult bindingResult){
         if(bindingResult.hasErrors()){
             return  ResultUtil.error(1,bindingResult.getFieldError().getDefaultMessage());
         }

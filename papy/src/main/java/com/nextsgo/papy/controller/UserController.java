@@ -1,37 +1,14 @@
 package com.nextsgo.papy.controller;
 
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.List;
-
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-import javax.persistence.Query;
-import javax.servlet.http.HttpServletRequest;
-import javax.validation.Valid;
-
-import org.junit.After;
-import org.junit.Before;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.beans.propertyeditors.CustomDateEditor;
-import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.nextsgo.common.entity.Result;
 import com.nextsgo.common.tools.ResultUtil;
-import com.nextsgo.papy.entity.T_S_USER;
 import com.nextsgo.papy.repository.UserRepository;
 import com.nextsgo.papy.service.UserService;
-import com.nextsgo.papy.utils.MD5Utils;
-import com.nextsgo.papy.utils.ManInfoProperties;
 import com.nextsgo.papy.utils.NativeQuery;
 
 /***

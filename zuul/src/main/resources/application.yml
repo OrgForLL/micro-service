@@ -26,8 +26,8 @@ logging:
 zuul:
   routes:
     eureka:
-      path: /eureka
-      url: http://127.0.0.1:7998
+      path: /springboot-admin
+      url: http://127.0.0.1:1002
     api-papy:
       path: /api-papy/**
       service-id: papy

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.nextsgo</groupId>
 	<artifactId>micro-service</artifactId>
@@ -9,20 +10,20 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>1.5.9.RELEASE</version>
-		<relativePath/> 
+		<relativePath />
 		<!-- lookup parent from repository -->
 	</parent>
 	<properties>
-	<spring-cloud.version>Edgware.SR1</spring-cloud.version>
+		<spring-cloud.version>Edgware.SR1</spring-cloud.version>
 	</properties>
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
-				 <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-dependencies</artifactId>
-                <version>${spring-cloud.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>${spring-cloud.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
@@ -63,6 +64,6 @@
 		<module>web</module>
 		<module>common</module>
 		<module>kafka</module>
-    <module>springboot-admin</module>
-  </modules>
+		<module>springboot-admin</module>
+	</modules>
 </project>
