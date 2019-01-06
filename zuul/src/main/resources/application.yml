@@ -16,7 +16,7 @@ management:
     enabled: false
 
 server:
-  port: 80
+  port: 7680
 
 logging:
   level:
@@ -41,10 +41,4 @@ zuul:
       service-id: msg
     test-msg:
       path: /test-msg/**
-      service-id: test-msg
-    api-web:
-      path: /web/**
-      service-id: web
-    test-web:
-      path: /test-web/**
-      service-id: test-web      
+      service-id: test-msg      
