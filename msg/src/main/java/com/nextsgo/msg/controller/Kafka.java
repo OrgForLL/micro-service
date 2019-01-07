@@ -21,9 +21,9 @@ public class Kafka {
 	private KafkaSender kafkaSender;
 	
 	
-	@RequestMapping("/Send")
+	@RequestMapping("/send")
 	@ResponseBody
-	private Result<?> Send(@RequestBody Message message) {			
+	private Result<?> send(@RequestBody Message message) {			
 		kafkaSender.send(message);
 		System.out.println(message.getTo());
 		return ResultUtil.success();

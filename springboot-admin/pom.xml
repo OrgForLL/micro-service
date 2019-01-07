@@ -7,26 +7,31 @@
 		<groupId>com.nextsgo</groupId>
 		<artifactId>micro-service</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
-	</parent>	
-	<artifactId>springboot-admin</artifactId>	
+	</parent>
+	<artifactId>springboot-admin</artifactId>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 	<dependencies>
-	
-<dependency>
-    <groupId>de.codecentric</groupId>
-    <artifactId>spring-boot-admin-server</artifactId>
-    <version>1.5.6</version>
-  </dependency>
-  <dependency>
-    <groupId>de.codecentric</groupId>
-    <artifactId>spring-boot-admin-server-ui</artifactId>
-    <version>1.5.6</version>
-  </dependency>
 
+		<dependency>
+			<groupId>de.codecentric</groupId>
+			<artifactId>spring-boot-admin-server</artifactId>
+			<version>1.5.6</version>
+		</dependency>
+		<dependency>
+			<groupId>de.codecentric</groupId>
+			<artifactId>spring-boot-admin-server-ui</artifactId>
+			<version>1.5.6</version>
+		</dependency>
+		<!-- eureka clien -->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-eureka</artifactId>
+		</dependency>
 	</dependencies>
 	<build>
+		<finalName>springboot-admin</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>

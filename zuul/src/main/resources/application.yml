@@ -1,6 +1,6 @@
 spring:
   application:
-    name: "zuul"
+    name: "zuul"  
 eureka:
   instance:
     prefer-ip-address: true
@@ -10,11 +10,10 @@ eureka:
 security:
   basic:
     enabled: false
-
+#springbootadmin 
 management:
   security:
-    enabled: false
-
+    enabled: false      
 server:
   port: 7680
 
@@ -24,10 +23,7 @@ logging:
     org.springframework.cloud.sleuth: DEBUG
 
 zuul:
-  routes:
-    eureka:
-      path: /springboot-admin
-      url: http://127.0.0.1:1002
+  routes:  
     api-papy:
       path: /api-papy/**
       service-id: papy

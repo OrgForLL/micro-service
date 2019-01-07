@@ -1,5 +1,6 @@
 spring:
-  profiles: master 
+  profiles: master      
+            
 server:
   port: 7998
 eureka:
