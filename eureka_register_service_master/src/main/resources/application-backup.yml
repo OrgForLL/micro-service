@@ -1,10 +1,13 @@
+#nohup java -jar eureka.jar --spring.profiles.active=backup &
 spring:
   profiles: backup 
 server:
   port: 7999
 eureka:
+  environment: wrkenv
   instance:
-    hostname: backupIP
+    hostname: backuphost
+    prefer-ip-address: true
   client:
     registerWithEureka: true
     fetchRegistry: true
@@ -15,5 +18,4 @@ security:
     enabled: true
   user:
     name: backup
-    password: 123
-          
+    password: 123       
