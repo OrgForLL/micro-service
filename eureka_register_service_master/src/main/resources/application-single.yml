@@ -1,0 +1,24 @@
+#nohup java -jar eureka.jar --spring.profiles.active=single &
+spring:
+  profiles: single   
+server:
+  port: 7998
+eureka:
+  environment: wrkenv
+  instance:
+    hostname: masterhost
+    prefer-ip-address: true
+  client:
+    #是否将自己注册到Eureka-Server中，默认的为true
+    registerWithEureka: false
+    #是否从Eureka-Server中获取服务注册信息，默认为true
+    fetchRegistry: false
+    serviceUrl:
+      #虽然配置了eureka.client.fetch-registry=false，即禁止自己注册自己，但是eureka server貌似还是会尝试寻找某一个eureka server来注册自己，这种行为并没有被停止。
+      defaultZone: http://localhost:7998/eureka/    
+security:
+  basic:
+    enabled: true
+  user:
+    name: single
+    password: 123       
