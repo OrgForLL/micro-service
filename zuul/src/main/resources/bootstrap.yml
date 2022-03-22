@@ -1,0 +1,19 @@
+spring:
+  application:
+  #项目名称invalid,有意为之，这样如果项目读不到配置中心的配置，项目名称就会不正确，防止项目没有读到配置但服务开启了
+    name: zuul-invalid  
+  cloud:    
+    config:     
+      name: zuul
+      label: master
+      discovery:
+        enabled: true
+        service-id: config
+          
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://master:123@masterIP:7998/eureka,http://backup:123@backupIP:7999/eureka
+  instance:
+    prefer-ip-address: true
+#    instance-id: ${spring.cloud.client.ipAddress}:${spring.application.name}:${server.port}  

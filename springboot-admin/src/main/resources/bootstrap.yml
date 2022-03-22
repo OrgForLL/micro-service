@@ -1,0 +1,20 @@
+spring:
+  application:  
+    name: springboot-admin  
+  cloud:    
+    config:     
+      name: springboot-admin
+      label: master
+      discovery:
+        enabled: true
+        service-id: config
+  boot:
+    admin:
+      context-path: /springboot-admin
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://master:123@masterIP:7998/eureka,http://backup:123@backupIP:7999/eureka
+  instance:
+    prefer-ip-address: true
+#    instance-id: ${spring.cloud.client.ipAddress}:${spring.application.name}:${server.port}  
