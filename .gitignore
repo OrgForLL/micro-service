@@ -49,7 +49,23 @@ eureka_register_service_master/logs/
 # Avoid ignoring Maven wrapper jar file (.jar files are usually ignored)
 !/.mvn/wrapper/maven-wrapper.jar
 /.metadata/
+
 common/.factorypath
 kafka/.factorypath
 msg/.factorypath
 papy/.factorypath
+
+.gitignore
+.gitignore
+.gitignore
+.gitignore
+.idea/encodings.xml
+.idea/compiler.xml
+.idea/jarRepositories.xml
+.gitignore
+.idea/jpa-buddy.xml
+.idea/vcs.xml
+.gitignore
+.idea/misc.xml
+.idea/runConfigurations.xml
+
