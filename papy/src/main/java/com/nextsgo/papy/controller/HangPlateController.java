@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.nextsgo.common.entity.Result;
 import com.nextsgo.common.tools.ResultUtil;
-import com.nextsgo.papy.entity.HangPlate;
+import com.nextsgo.papy.entity.AlloyHangPlate;
 
 import com.nextsgo.papy.repository.HangPlateRepository;
 
@@ -25,7 +25,7 @@ public class HangPlateController {
 	HangPlateService hangPlateService;
 
 	@PostMapping(value = "/hangplates")
-	private Result<?> hangPlateAdd(@Valid HangPlate hangplate, BindingResult bindingResult) {
+	private Result<?> hangPlateAdd(@Valid AlloyHangPlate hangplate, BindingResult bindingResult) {
 		if (bindingResult.hasErrors()) {
 			return ResultUtil.error(1, bindingResult.getFieldError().getDefaultMessage());
 		}

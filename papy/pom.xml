@@ -21,13 +21,51 @@
 			<artifactId>eclipselink</artifactId>
 			<version>2.6.5-RC2</version>
 		</dependency>
-
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<scope>runtime</scope>
+		</dependency>		
+		<!-- groovy script -->
+		<dependency>
+            <groupId>org.codehaus.groovy</groupId>
+            <artifactId>groovy-all</artifactId>
+            <version>2.5.6</version>
+            <type>pom</type>
+        </dependency>
+		<!-- groovy script end -->
+		<!--引入JWT依赖,由于是基于Java，所以需要的是java-jwt-->
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt</artifactId>
+            <version>0.9.1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.auth0</groupId>
+            <artifactId>java-jwt</artifactId>
+            <version>3.4.0</version>
+        </dependency>
+        
 		<dependency>
 			<groupId>org.eclipse.persistence</groupId>
 			<artifactId>javax.persistence</artifactId>
 			<version>2.1.1</version>
+		</dependency>		
+		<!-- actuator是监控系统健康情况的工具 -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
 		</dependency>
-
+		<dependency>
+			<groupId>de.codecentric</groupId>
+			<artifactId>spring-boot-admin-starter-client</artifactId>
+			<version>1.5.6</version>
+		</dependency>		
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<optional>true</optional>
+		</dependency>			
 		<!-- https://mvnrepository.com/artifact/com.microsoft.sqlserver/sqljdbc4 -->
 		<!-- mvn install:install-file -Dfile=E:\gitrepos\sqljdbc42.jar -Dpackaging=jar -DgroupId=com.microsoft.sqlserver -DartifactId=sqljdbc4 -Dversion=6.0 -->
 		<dependency>
@@ -36,31 +74,21 @@
 		    <version>6.0</version>
 		</dependency>
 		<dependency>
-
 			<groupId>org.springframework.cloud</groupId>
-
 			<artifactId>spring-cloud-starter-eureka</artifactId>
-
-		</dependency>
-
-
-
-		<!-- 用于注册中心访问账号认证 -->
-
-		<dependency>
-
-			<groupId>org.springframework.boot</groupId>
-
-			<artifactId>spring-boot-starter-actuator</artifactId>
-
-
-		</dependency>
+		</dependency> 
 		<dependency>
 			<groupId>com.nextsgo</groupId>
 			<artifactId>common</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<!-- 不加这个，mysql连接不上 -->
+		<java.version>1.8</java.version>
+	</properties>	
 	<build>
 		<finalName>papy</finalName>
 		<plugins>

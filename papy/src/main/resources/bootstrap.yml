@@ -1,0 +1,19 @@
+spring:
+  application:    
+    name: papycs  
+  cloud:    
+    config:     
+      name: papy,mysql
+      label: master
+      discovery:
+        enabled: true
+        service-id: config
+          
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://master:123@masterIP:7998/eureka,http://backup:123@backupIP:7999/eureka
+  instance:
+    prefer-ip-address: true
+    status-page-url-path: /myinfo
+#    instance-id: ${spring.cloud.client.ipAddress}:${spring.application.name}:${server.port}  
