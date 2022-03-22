@@ -1,6 +1,13 @@
 spring:
   application:
     name: eurekaserver
+#springbootadmin 
+management:
+  security:
+    enabled: false
+eureka:
+  server:
+    enable-self-preservation: false         
 ---
 #nohup java -jar eureka.jar --spring.profiles.active=master &
 spring:
