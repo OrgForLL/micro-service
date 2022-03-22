@@ -1,0 +1,54 @@
+server:
+   port: 7897
+spring:
+   application:
+      name: config
+   cloud:
+      config:
+         server:
+            git:
+               # 配置git仓库地址
+               uri: http://gogs.nextsgo.com/More/config.git
+               # 访问git仓库的用户名
+               username: config
+               # 访问git仓库的用户密码 如果Git仓库为公开仓库，可以不填写用户名和密码，如果是私有仓库需要填写
+               password: Hello123456!
+               #支持带{application}和{profile}（{label}如果需要）占位符的搜索路径          
+         # 配置仓库的分支,可不配
+         label: master
+eureka:
+  client:
+    service-url:
+      defaultZone: http://master:123@masterIP:7998/eureka/,http://backup:123@backupIP:7999/eureka/
+#springbootadmin 
+management:
+  security:
+    enabled: false
+---
+#nohup java -jar config.jar --spring.profiles.active=dev &
+eureka:
+  instance:
+  #配置中心要被测试的客户端访问，只能配置使用hostname，这样客户端才能通过更改host连接到配置中心，如果直接使用IP的话，IP不通
+    prefer-ip-address: false
+    hostname: configdevIP
+spring:
+  profiles: dev
+  cloud:
+     config:
+        server:
+           git:
+              search-paths: dev
+---               
+#nohup java -jar config.jar --spring.profiles.active=prd &
+eureka:
+  instance:
+  #配置中心要被测试的客户端访问，只能配置使用hostname，这样客户端才能通过更改host连接到配置中心，如果直接使用IP的话，IP不通
+    prefer-ip-address: false
+    hostname: configprdIP
+spring:
+  profiles: prd
+  cloud:
+     config:
+        server:
+           git:
+              search-paths: prd               
