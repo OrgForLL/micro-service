@@ -70,3 +70,4 @@ papy/.factorypath
 .idea/runConfigurations.xml
 
 .vscode/settings.json
+.history/*
