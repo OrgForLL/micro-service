@@ -71,3 +71,4 @@ papy/.factorypath
 
 .vscode/settings.json
 .history/*
+logs/*
