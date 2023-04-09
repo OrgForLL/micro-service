@@ -14,7 +14,10 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
 	</properties>
+
 	<dependencies>
 		<dependency>
 			<groupId>org.projectlombok</groupId>
@@ -22,4 +25,16 @@
 			<optional>true</optional>
 		</dependency>
 	</dependencies>
+	<distributionManagement>
+		<repository>
+			<id>maven-releases</id><!--此处的id要和settings.xml中repository的id保持一致-->
+			<name>Nexus Release Repository</name>
+			<url>http://192.168.35.133:8081/repository/maven-releases/</url>
+		</repository>
+		<snapshotRepository>
+			<id>maven-snapshots</id><!--此处的id要和settings.xml中repository的id保持一致-->
+			<name>Nexus Snapshot Repository</name>
+			<url>http://192.168.35.133:8081/repository/maven-snapshots/</url>
+		</snapshotRepository> 
+	  </distributionManagement>
 </project>

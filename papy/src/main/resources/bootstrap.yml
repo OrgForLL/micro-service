@@ -1,6 +1,6 @@
 spring:
   application:    
-    name: papycs  
+    name: papy  
   cloud:    
     config:     
       name: papy,mysql
